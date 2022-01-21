@@ -8,11 +8,8 @@ P4: JS Asincron i APIs
 
 Team: Victoria Pelaez & Antonio Morell
 
-- [Github Projects](https://github.com/amorellb/TimeInn/projects/1)
-- [Wireframe](https://balsamiq.cloud/sbduqxt/p36dhva)
-- [Netlify](https://focused-neumann-3c3171.netlify.app)
+- [Netlify]()
 - Used production version generator: [Parcel](https://parceljs.org/)
-- Vídeo explicativo sobre la web TimeInn: [enlace a Drive](https://drive.google.com/drive/folders/1JmWdMfeQHSo_J-YYPkSs5WkRkO32tXXm?usp=sharing)
 
 ### _FONTS_
 
@@ -65,4 +62,6 @@ El log-in genera una cookie de sesión con el nombre de usuario, que permite que
 - Para que el usuario se pueda registrar, debe aceptar la casilla de la politica de Privacidad.
 - Los datos de cada usuario se almacenan en el _local storage_ del navegador, de manera que se crea una persistencia de esos datos en el navegador.
 - Se solicitaba mínimo 3 describe (tests) pero se han realizado 6.
-- Cuando el usuario se registra y sale el mensaje de resgistro completado, se redirecciona a la página para logearse. 
+- Cuando el usuario se registra y sale el mensaje de resgistro completado, se redirecciona a la página para logearse.
+
+## P4 TimeInn API
