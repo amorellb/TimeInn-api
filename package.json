@@ -1,5 +1,5 @@
 {
-  "name": "timeinn",
+  "name": "timeinn-api",
   "version": "1.0.0",
   "description": "The Code Theater events",
   "default": "index.html",
@@ -7,22 +7,34 @@
   "scripts": {
     "start": "parcel *.html",
     "build": "parcel build *.html --dist-dir ./dist",
-    "test": "mocha --recursive --parallel"
+    "test": "mocha --recursive --parallel",
+    "server": "node api/server/index.js",
+    "server-dev": "nodemon api/server/index.js",
+    "api": "json-server --watch api/db/crud.json",
+    "md-toc": "markdown-toc -i README.md"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amorellb/TimeInn.git"
+    "url": "git+https://github.com/amorellb/TimeInn-api.git"
   },
-  "author": "Morell Pelaez",
+  "author": "Antonio Morell Bennasser",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/amorellb/TimeInn/issues"
+    "url": "https://github.com/amorellb/TimeInn-api/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "dotenv": "^14.2.0",
+    "json-server": "^0.17.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@parcel/transformer-image": "^2.0.0-rc.0",
-    "@parcel/transformer-sass": "^2.0.0-rc.0",
+    "@parcel/transformer-sass": "^2.2.1",
     "chai": "^4.3.4",
+    "markdown-toc": "^1.2.0",
     "mocha": "^9.1.3",
+    "nodemon": "^2.0.15",
     "parcel": "^2.0.1",
     "sass": "^1.39.2"
   }
