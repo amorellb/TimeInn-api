@@ -6,6 +6,7 @@ import { TIMEOUT_SEC } from './config';
  * @returns Returns a string with the first letter in uppercase
  */
 export const firstUpperLetter = function (word) {
+  if (!word) return;
   const firstLetter = word.split('')[0].toUpperCase();
   return firstLetter.concat(word.slice(1, word.length));
 };

@@ -30,7 +30,11 @@
       "title": "Pierrot Lunaire: Narcís",
       "author": "Arnold Schönberg",
       "group": "",
-      "dates": ["11/16/2021", "11/17/2021", "11/18/2021"],
+      "dates": [
+        "11/16/2021",
+        "11/17/2021",
+        "11/18/2021"
+      ],
       "type": "concert",
       "duration": 60,
       "price": 65,
@@ -47,12 +51,17 @@
     {
       "id": 3,
       "title": "Mite i tragèdia d'electra i èdip",
-      "author": ["Richard Strauss", "Igor Stravinsky"],
+      "author": [
+        "Richard Strauss",
+        "Igor Stravinsky"
+      ],
       "group": [
         "Cor del Gran TeaTRE del Liceu",
         "Orquestra Simfónica del Gran Tatre del Liceu"
       ],
-      "dates": ["11/13/2021"],
+      "dates": [
+        "11/13/2021"
+      ],
       "type": "opera",
       "duration": 120,
       "price": 80,
@@ -122,7 +131,9 @@
         "Orquestra Simfónica del Gran Teatre del Liceu",
         "Orchestre de l'Opéra National de Paris"
       ],
-      "dates": ["11/21/2021"],
+      "dates": [
+        "11/21/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 45,
@@ -199,7 +210,9 @@
       "title": "Els Madrigals de Monteverdi I",
       "author": "C. Monteverdi",
       "group": "Concerto Italiano",
-      "dates": ["11/07/2021"],
+      "dates": [
+        "11/07/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 105,
@@ -275,7 +288,9 @@
       "title": "Piotr Beczala",
       "author": "",
       "group": "",
-      "dates": ["02/03/2022"],
+      "dates": [
+        "02/03/2022"
+      ],
       "type": "concert",
       "duration": "Not available",
       "price": 25,
@@ -292,7 +307,9 @@
       "title": "Sonya Yoncheva canta Puccini",
       "author": "",
       "group": "Gran Simfònica del Gran Teatre del Liceu",
-      "dates": ["04/30/2022"],
+      "dates": [
+        "04/30/2022"
+      ],
       "type": "concert",
       "duration": 160,
       "price": 35,
@@ -309,7 +326,12 @@
       "title": "Giselle D'Akram Khan",
       "author": "Adolphe Adam",
       "group": "English National Ballet",
-      "dates": ["05/04/2022", "05/05/2022", "05/06/2022", "05/07/2022"],
+      "dates": [
+        "05/04/2022",
+        "05/05/2022",
+        "05/06/2022",
+        "05/07/2022"
+      ],
       "type": "dance",
       "duration": 120,
       "price": 70,

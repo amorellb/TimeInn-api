@@ -94,7 +94,8 @@ const controlAllEventsPage = async function () {
   // Filter events by date
   allEventsPage.btnFindHandler(model.events);
   // Upload and save new event
-  allEventsPage.uploadBtnHandler(model.events);
+  allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
+  allEventsPage.deleteEventHandler(model.deleteEvent);
 };
 
 // Render the all-news Page

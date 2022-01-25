@@ -38,12 +38,11 @@ export const getAllEvents = async function () {
 //   };
 // };
 
-const createEventObject = function (data) {
-  const { event } = data;
+const createEventObject = function (event) {
   return {
     id: generateRandomId(1, 999_999),
     title: event.title,
-    dates: [...event.dates],
+    dates: [event.dates],
     type: event.type,
     imgURL: event.imgURL,
     description: event.description
@@ -71,7 +70,7 @@ export async function editEvent(eventId, eventData) {
 
 export async function deleteEvent(eventId) {
   try {
-    AJAX(`${API_URL}events/${eventId}`, _, 'DELETE');
+    AJAX(`${API_URL}events/${eventId}`, '', 'DELETE');
   } catch (err) {
     console.error(err);
     throw error;
