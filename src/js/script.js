@@ -1,4 +1,5 @@
 import * as data from './data.js';
+import * as model from './model.js';
 import * as helper from './helper.js';
 
 import * as headerFooter from './header-footer.js';
@@ -18,6 +19,12 @@ import * as signupValidation from './form-validation/signup-validation.js';
 if (module.hot) {
   module.hot.accept();
 }
+
+const showData = async function () {
+  const data = await model.getData();
+  console.log(data);
+};
+showData();
 
 const eventsDataCopy = [...data.theaterData.events];
 

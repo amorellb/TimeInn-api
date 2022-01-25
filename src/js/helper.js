@@ -1,3 +1,5 @@
+import { TIMEOUT_SEC } from './config';
+
 /**
  * A helper function used to change the first letter of a word to uppercase
  * @param {string} word
@@ -79,5 +81,42 @@ export const filterUserCookie = function () {
     return userCookie;
   } catch (err) {
     console.error(err);
+  }
+};
+
+// Timeout error
+const timeout = function (s) {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error(`Request took to long! ${s} seconds`));
+    }, s * 1000);
+  });
+};
+
+// Fetch function
+export const AJAX = async function (
+  url,
+  uploadData = undefined,
+  method = 'POST'
+) {
+  try {
+    const fetchRes = uploadData
+      ? fetch(url, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(uploadData)
+        })
+      : fetch(url);
+
+    const res = await Promise.race([fetchRes, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    console.error(err);
+    throw err;
   }
 };
