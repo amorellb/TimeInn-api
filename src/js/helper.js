@@ -84,7 +84,17 @@ export const filterUserCookie = function () {
   }
 };
 
-// Timeout error
+/**
+ * A function that given a min and a max number will return a random number between them
+ * @param {integer} min
+ * @param {integer} max
+ * @returns An integer between the min and max numbers
+ */
+export const generateRandomId = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+// Fetch timeout error
 const timeout = function (s) {
   return new Promise((_, reject) => {
     setTimeout(() => {
@@ -100,7 +110,7 @@ export const AJAX = async function (
   method = 'POST'
 ) {
   try {
-    const fetchRes = uploadData
+    const fetchPro = uploadData
       ? fetch(url, {
           method: method,
           headers: {
@@ -108,9 +118,11 @@ export const AJAX = async function (
           },
           body: JSON.stringify(uploadData)
         })
+      : method === 'DELETE'
+      ? fetch(url, { method: 'DELETE' })
       : fetch(url);
 
-    const res = await Promise.race([fetchRes, timeout(TIMEOUT_SEC)]);
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
     const data = await res.json();
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);

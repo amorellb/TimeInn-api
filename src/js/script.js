@@ -37,7 +37,6 @@ const controlFirstSection = async function () {
   firstSection.render(firstSection.generateVideoMarkup(model.events));
   firstSection.render(firstSection.generateInfoMarkup(model.events));
 };
-controlFirstSection();
 
 // Render the second section: events of the week
 const controlSecondSection = async function () {
@@ -48,7 +47,6 @@ const controlSecondSection = async function () {
   });
   secondSection.displayEventHandler(model.events);
 };
-controlSecondSection();
 
 //Render Calendar
 calendar.render(calendar.createCalendar());
@@ -78,10 +76,10 @@ const controlEventPage = async function () {
   await model.getAllEvents();
   eventPage.render(eventPage.generateEventMarkup(model.events));
 };
-controlEventPage();
 
 const controlAllEventsPage = async function () {
   await model.getAllEvents();
+
   // Render all events into all-events page
   model.events.forEach(event =>
     allEventsPage.render(allEventsPage.generateEventsMarkup(event))
@@ -96,9 +94,8 @@ const controlAllEventsPage = async function () {
   // Filter events by date
   allEventsPage.btnFindHandler(model.events);
   // Upload and save new event
-  allEventsPage.uploadBtnHandler(eventsDataCopy);
+  allEventsPage.uploadBtnHandler(model.events);
 };
-controlAllEventsPage;
 
 // Render the all-news Page
 newsSection
@@ -124,8 +121,10 @@ signupValidation.passwMatchFocusHandler();
 //Show passw
 signupValidation.showPassw();
 
-// const init = function () {
-//   controlAllEvents();
-// };
-
-// init();
+const init = function () {
+  controlFirstSection();
+  controlSecondSection();
+  controlEventPage();
+  controlAllEventsPage();
+};
+init();
