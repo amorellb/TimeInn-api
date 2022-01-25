@@ -95,6 +95,7 @@ const controlAllEventsPage = async function () {
   allEventsPage.btnFindHandler(model.events);
   // Upload and save new event
   allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
+  allEventsPage.editEventHandler(model.editEvent);
   allEventsPage.deleteEventHandler(model.deleteEvent);
 };
 

@@ -61,7 +61,8 @@ export async function uploadEvent(eventData) {
 
 export async function editEvent(eventId, eventData) {
   try {
-    AJAX(`${API_URL}events/${eventId}`, eventData, 'PATCH');
+    const eventObj = createEventObject(eventData);
+    AJAX(`${API_URL}events/${eventId}`, eventObj, 'PATCH');
   } catch (err) {
     console.error(err);
     throw error;
