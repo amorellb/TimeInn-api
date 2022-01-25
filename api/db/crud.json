@@ -1,6 +1,7 @@
 {
   "events": [
     {
+      "id": 1,
       "title": "Winterreise",
       "author": "Angelin Preljocaj",
       "group": "Ballet Preljocaj",
@@ -25,10 +26,15 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam ratione debitis impedit voluptate fuga dolores ullam, vitae voluptatibus quidem veniam eius, nisi odio harum nobis deserunt iure delectus? Excepturi, a?"
     },
     {
+      "id": 2,
       "title": "Pierrot Lunaire: Narcís",
       "author": "Arnold Schönberg",
       "group": "",
-      "dates": ["11/16/2021", "11/17/2021", "11/18/2021"],
+      "dates": [
+        "11/16/2021",
+        "11/17/2021",
+        "11/18/2021"
+      ],
       "type": "concert",
       "duration": 60,
       "price": 65,
@@ -43,13 +49,19 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 3,
       "title": "Mite i tragèdia d'electra i èdip",
-      "author": ["Richard Strauss", "Igor Stravinsky"],
+      "author": [
+        "Richard Strauss",
+        "Igor Stravinsky"
+      ],
       "group": [
         "Cor del Gran TeaTRE del Liceu",
         "Orquestra Simfónica del Gran Tatre del Liceu"
       ],
-      "dates": ["11/13/2021"],
+      "dates": [
+        "11/13/2021"
+      ],
       "type": "opera",
       "duration": 120,
       "price": 80,
@@ -68,6 +80,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 4,
       "title": "Rigoletto",
       "author": "Giuseppe Verdi",
       "group": "",
@@ -111,13 +124,16 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 5,
       "title": "Dudamel dirigeix la Simfònica fantàstica de Berlioz",
       "author": "Gustavo Dudamel",
       "group": [
         "Orquestra Simfónica del Gran Teatre del Liceu",
         "Orchestre de l'Opéra National de Paris"
       ],
-      "dates": ["11/21/2021"],
+      "dates": [
+        "11/21/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 45,
@@ -129,6 +145,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 6,
       "title": "Die Zauberflöte",
       "author": "Wolfgang Amadeus Mozart",
       "group": [
@@ -162,6 +179,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 7,
       "title": "El Trencanous",
       "author": "Piotr Tchaikovsky",
       "group": "",
@@ -188,10 +206,13 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 8,
       "title": "Els Madrigals de Monteverdi I",
       "author": "C. Monteverdi",
       "group": "Concerto Italiano",
-      "dates": ["11/07/2021"],
+      "dates": [
+        "11/07/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 105,
@@ -203,6 +224,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 9,
       "title": "Pelléas et Mélisande",
       "author": "Maurice Maeterlinck",
       "group": "",
@@ -230,6 +252,7 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 10,
       "title": "Pikovaia Dama",
       "author": "Piotr Ilitx Txaikovski",
       "group": "",
@@ -261,10 +284,13 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 11,
       "title": "Piotr Beczala",
       "author": "",
       "group": "",
-      "dates": ["02/03/2022"],
+      "dates": [
+        "02/03/2022"
+      ],
       "type": "concert",
       "duration": "Not available",
       "price": 25,
@@ -277,10 +303,13 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 12,
       "title": "Sonya Yoncheva canta Puccini",
       "author": "",
       "group": "Gran Simfònica del Gran Teatre del Liceu",
-      "dates": ["04/30/2022"],
+      "dates": [
+        "04/30/2022"
+      ],
       "type": "concert",
       "duration": 160,
       "price": 35,
@@ -293,10 +322,16 @@
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
+      "id": 13,
       "title": "Giselle D'Akram Khan",
       "author": "Adolphe Adam",
       "group": "English National Ballet",
-      "dates": ["05/04/2022", "05/05/2022", "05/06/2022", "05/07/2022"],
+      "dates": [
+        "05/04/2022",
+        "05/05/2022",
+        "05/06/2022",
+        "05/07/2022"
+      ],
       "type": "dance",
       "duration": 120,
       "price": 70,

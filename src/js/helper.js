@@ -1,9 +1,12 @@
+import { TIMEOUT_SEC } from './config';
+
 /**
  * A helper function used to change the first letter of a word to uppercase
  * @param {string} word
  * @returns Returns a string with the first letter in uppercase
  */
 export const firstUpperLetter = function (word) {
+  if (!word) return;
   const firstLetter = word.split('')[0].toUpperCase();
   return firstLetter.concat(word.slice(1, word.length));
 };
@@ -79,5 +82,54 @@ export const filterUserCookie = function () {
     return userCookie;
   } catch (err) {
     console.error(err);
+  }
+};
+
+/**
+ * A function that given a min and a max number will return a random number between them
+ * @param {integer} min
+ * @param {integer} max
+ * @returns An integer between the min and max numbers
+ */
+export const generateRandomId = function (min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+// Fetch timeout error
+const timeout = function (s) {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error(`Request took to long! ${s} seconds`));
+    }, s * 1000);
+  });
+};
+
+// Fetch function
+export const AJAX = async function (
+  url,
+  uploadData = undefined,
+  method = 'POST'
+) {
+  try {
+    const fetchPro = uploadData
+      ? fetch(url, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(uploadData)
+        })
+      : method === 'DELETE'
+      ? fetch(url, { method: 'DELETE' })
+      : fetch(url);
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    console.error(err);
+    throw err;
   }
 };
