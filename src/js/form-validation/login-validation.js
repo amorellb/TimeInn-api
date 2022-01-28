@@ -11,7 +11,7 @@ const emailInput = document.querySelector('.email-input');
 const passInput = document.querySelector('.pass-input');
 const btnLogin = document.querySelector('.btn-login');
 
-export const loginBtnHandler = function (usersArr) {
+export const loginBtnHandler = function (usersArr, setTokenFnc) {
   if (!btnLogin || !emailInput || !passInput) return;
   btnLogin.addEventListener('click', e => {
     e.preventDefault();
@@ -20,11 +20,11 @@ export const loginBtnHandler = function (usersArr) {
       passInput.value,
       usersArr
     );
-    sendMsg(user);
+    sendMsg(user, setTokenFnc);
   });
 };
 
-const sendMsg = function (checkedUser) {
+const sendMsg = function (checkedUser, setTokenFnc) {
   if (!alertMsgLogin) return;
   if (!checkedUser) {
     helper.toggleAlertVisibility(overlay, alertMsgLogin);
@@ -33,7 +33,10 @@ const sendMsg = function (checkedUser) {
     }, 3000);
   } else if (checkedUser) {
     helper.setCookie(`user=${checkedUser.name}; path=/; SameSite=Lax;`);
-    window.location.replace('index.html');
+    setTokenFnc(checkedUser.email, checkedUser.password);
+    setTimeout(() => {
+      window.location.replace('index.html');
+    }, 1000);
   }
 };
 

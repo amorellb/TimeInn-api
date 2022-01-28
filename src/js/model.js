@@ -71,3 +71,5 @@ export async function setCookieToken(email, passwd) {
     `token=${tokenObj.access_token}; max-age=604800; path=/; SameSite=Lax;`
   );
 }
+
+setCookieToken('b@email.com', 'A@2qwerty');

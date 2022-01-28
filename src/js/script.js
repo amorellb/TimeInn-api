@@ -109,7 +109,7 @@ newsPage.showContent();
 loginValidation.checkboxHandler();
 loginValidation.sendToSignUpPage();
 const usersData = helper.getLocalStorage(data.users);
-loginValidation.loginBtnHandler(usersData);
+loginValidation.loginBtnHandler(usersData, model.setCookieToken);
 
 // Signup
 signupValidation.emailFocusHandler(usersData);
@@ -122,9 +122,7 @@ signupValidation.passwMatchFocusHandler();
 
 //Show passw
 signupValidation.showPassw();
-
-model.setCookieToken('pepe@pepe.com', 'pepe1234');
-
+// model.setCookieToken('pepe@pepe.com', 'pepe1234');
 const init = function () {
   controlFirstSection();
   controlSecondSection();
