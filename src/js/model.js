@@ -62,14 +62,30 @@ export async function deleteEvent(eventId) {
 }
 
 export async function setCookieToken(email, passwd) {
-  const fetchPro = await fetch(`${API_AUTH_URL}auth/login`, {
-    method: 'GET',
-    headers: { Authorization: 'Basic ' + btoa(`${email}:${passwd}`) }
-  });
-  const tokenObj = await fetchPro.json();
-  setCookie(
-    `token=${tokenObj.access_token}; max-age=604800; path=/; SameSite=Lax;`
-  );
+  try {
+    const fetchPro = await fetch(`${API_AUTH_URL}auth/login`, {
+      method: 'GET',
+      headers: { Authorization: 'Basic ' + btoa(`${email}:${passwd}`) }
+    });
+    const tokenObj = await fetchPro.json();
+    setCookie(
+      `token=${tokenObj.access_token}; max-age=604800; path=/; SameSite=Lax;`
+    );
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-setCookieToken('b@email.com', 'A@2qwerty');
+export async function registerUser(email, passwd) {
+  try {
+    fetch(`${API_AUTH_URL}auth/register`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email, password: passwd })
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}

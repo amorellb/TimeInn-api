@@ -27,7 +27,7 @@ const userData = {
   name: '',
   lastName: '',
   email: '',
-  password: '',
+  password: ''
 };
 
 const sendNameMessage = function (userNameInput) {
@@ -219,7 +219,7 @@ const getUserData = function () {
   return userData;
 };
 
-export const signupBtnHandler = function (usersData) {
+export const signupBtnHandler = function (usersData, registerFcn) {
   if (
     !signupBtn ||
     !usernameInput ||
@@ -240,6 +240,7 @@ export const signupBtnHandler = function (usersData) {
       usersData.push(data);
       helper.setLocalStorage(usersData);
       helper.toggleAlertVisibility(overlay, alertMsg);
+      registerFcn(data.email, data.password);
       setTimeout(() => {
         helper.toggleAlertVisibility(overlay, alertMsg);
         setTimeout(() => {

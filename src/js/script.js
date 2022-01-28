@@ -115,7 +115,7 @@ loginValidation.loginBtnHandler(usersData, model.setCookieToken);
 signupValidation.emailFocusHandler(usersData);
 signupValidation.nameFocusHandler();
 
-signupValidation.signupBtnHandler(usersData);
+signupValidation.signupBtnHandler(usersData, model.registerUser);
 
 signupValidation.passwFocusHandler();
 signupValidation.passwMatchFocusHandler();
