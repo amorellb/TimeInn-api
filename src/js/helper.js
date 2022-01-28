@@ -70,8 +70,27 @@ export const setCookie = function (cookieParams) {
 };
 
 // Delete user cookie
-export const delCookie = function (userCookieName) {
-  setCookie(`${userCookieName}; max-age=-1; path=/; SameSite=Lax;`);
+export const delCookie = function (CookieName) {
+  setCookie(`${CookieName}; max-age=-1; path=/; SameSite=Lax;`);
+};
+
+// Get the user token from the cookie
+export const getToken = function () {
+  try {
+    const cookies = getCookies();
+    const [tokenCookie] = cookies?.filter(cookie => cookie.startsWith('token'));
+    const token = tokenCookie?.split('=')[1];
+    return token;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// Delete the cookie with the user token
+export const delToken = function () {
+  const cookies = getCookies();
+  const tokenCookie = cookies?.filter(cookie => cookie.startsWith('token'));
+  setCookie(`${tokenCookie}; max-age=-1; path=/; SameSite=Lax;`);
 };
 
 // Filter user cookie

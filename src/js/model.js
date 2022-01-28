@@ -1,5 +1,5 @@
-import { API_URL } from './config';
-import { AJAX, generateRandomId } from './helper';
+import { API_URL, API_AUTH_URL } from './config';
+import { AJAX, generateRandomId, setCookie } from './helper';
 
 export const state = {
   title: '',
@@ -20,23 +20,6 @@ export const getAllEvents = async function () {
     throw err;
   }
 };
-
-// const createEventObject = function (data) {
-//   const { event } = data;
-//   return {
-//     title: event.title,
-//     author: event.author,
-//     group: event.group,
-//     dates: [...event.dates],
-//     type: event.type,
-//     duration: event.duration,
-//     price: event.price,
-//     artists: { ...event.artists },
-//     imgURL: event.imgURL,
-//     videoURL: event.videoURL,
-//     description: event.description
-//   };
-// };
 
 const createEventObject = function (event) {
   return {
@@ -76,4 +59,15 @@ export async function deleteEvent(eventId) {
     console.error(err);
     throw error;
   }
+}
+
+export async function setCookieToken(email, passwd) {
+  const fetchPro = await fetch(`${API_AUTH_URL}auth/login`, {
+    method: 'GET',
+    headers: { Authorization: 'Basic ' + btoa(`${email}:${passwd}`) }
+  });
+  const tokenObj = await fetchPro.json();
+  setCookie(
+    `token=${tokenObj.access_token}; max-age=604800; path=/; SameSite=Lax;`
+  );
 }

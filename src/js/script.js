@@ -123,6 +123,8 @@ signupValidation.passwMatchFocusHandler();
 //Show passw
 signupValidation.showPassw();
 
+model.setCookieToken('pepe@pepe.com', 'pepe1234');
+
 const init = function () {
   controlFirstSection();
   controlSecondSection();
