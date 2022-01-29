@@ -53,11 +53,17 @@ calendar.render(calendar.createCalendar());
 calendar.addEventCalendar();
 
 //Render the fourth section: news
-newsSection
-  .filterNews(data.theaterData.news)
-  .slice(0, 4)
-  .reverse()
-  .forEach(news => newsSection.render(newsSection.generateNewsMarkup(news)));
+const controlNewsSection = async function () {
+  // await model.getNews(
+  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVwZUBwZXBlLmNvbSIsInBzd2QiOiJwZXBlMTIzNCIsImlhdCI6MTY0MzQxNDI2MiwiZXhwIjoxNjQzNDE3ODYyfQ.OutRTavGogZgtuoPfqSbJgMmrYQd9KFcMRI5GFNxCmI'
+  // );
+  await model.getNews(helper.getToken());
+  newsSection
+    .filterNews(model.news)
+    .slice(0, 4)
+    .reverse()
+    .forEach(news => newsSection.render(newsSection.generateNewsMarkup(news)));
+};
 
 // Generate cookie and render subscription modal
 const cookies = helper.getCookies();
@@ -100,15 +106,21 @@ const controlAllEventsPage = async function () {
 };
 
 // Render the all-news Page
-newsSection
-  .filterNews(data.theaterData.news)
-  .forEach(news => newsPage.render(newsPage.generateAllNews(news)));
-newsPage.showContent();
+const controlNewsPage = async function () {
+  // await model.getNews(
+  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVwZUBwZXBlLmNvbSIsInBzd2QiOiJwZXBlMTIzNCIsImlhdCI6MTY0MzQxNDI2MiwiZXhwIjoxNjQzNDE3ODYyfQ.OutRTavGogZgtuoPfqSbJgMmrYQd9KFcMRI5GFNxCmI'
+  // );
+  await model.getNews(helper.getToken());
+  newsSection
+    .filterNews(model.news)
+    .forEach(news => newsPage.render(newsPage.generateAllNews(news)));
+  newsPage.showContent();
+};
 
 // Login
 loginValidation.checkboxHandler();
 loginValidation.sendToSignUpPage();
-const usersData = helper.getLocalStorage(data.users);
+const usersData = [...helper.getLocalStorage(data.users)];
 loginValidation.loginBtnHandler(usersData, model.setCookieToken);
 
 // Signup
@@ -122,11 +134,19 @@ signupValidation.passwMatchFocusHandler();
 
 //Show passw
 signupValidation.showPassw();
+
 // model.setCookieToken('pepe@pepe.com', 'pepe1234');
 const init = function () {
   controlFirstSection();
   controlSecondSection();
   controlEventPage();
   controlAllEventsPage();
+  if (helper.getToken()) {
+    controlNewsSection();
+    controlNewsPage();
+  } else {
+    newsSection.render('<h2 class="restricted-msg">Restricted content</h2>');
+    newsPage.render('<h2 class="restricted-msg">Restricted content</h2>');
+  }
 };
 init();

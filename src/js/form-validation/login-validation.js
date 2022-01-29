@@ -33,7 +33,7 @@ const sendMsg = function (checkedUser, setTokenFnc) {
     }, 3000);
   } else if (checkedUser) {
     helper.setCookie(`user=${checkedUser.name}; path=/; SameSite=Lax;`);
-    setTokenFnc(checkedUser.email, checkedUser.password);
+    setTokenFnc(checkedUser);
     setTimeout(() => {
       window.location.replace('index.html');
     }, 1000);
