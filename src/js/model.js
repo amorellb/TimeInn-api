@@ -71,7 +71,6 @@ const createUserObject = function (user) {
 
 export async function setCookieToken(email, passwd) {
   try {
-    console.log(email, passwd);
     const fetchPro = await fetch(`${API_AUTH_URL}auth/login`, {
       method: 'GET',
       headers: { Authorization: 'Basic ' + btoa(`${email}:${passwd}`) }
@@ -88,7 +87,6 @@ export async function setCookieToken(email, passwd) {
 export async function registerUser(user) {
   try {
     const userObj = createUserObject(user);
-    console.log(userObj);
     fetch(`${API_AUTH_URL}auth/register`, {
       method: 'POST',
       headers: {
@@ -100,15 +98,6 @@ export async function registerUser(user) {
     console.error(err);
   }
 }
-
-// setCookieToken('pepe@pepe.com', 'pepe1234');
-
-// fetch(`${API_AUTH_URL}auth/login`, {
-//   method: 'GET',
-//   headers: { Authorization: 'Basic ' + btoa('b@email.com:A@2qwerty') }
-// })
-//   .then(res => res.json())
-//   .then(data => console.log(data));
 
 export async function getNews(token) {
   try {

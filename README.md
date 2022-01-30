@@ -2,6 +2,8 @@
 
 P4: JS Asincron i APIs
 
+S'ha afegit un logOut el clickar sobre el nom de l'usuari actiu que es troba a l _header_.
+
 ## P2 TimeInn
 
 ### _INFO_
@@ -63,5 +65,3 @@ El log-in genera una cookie de sesión con el nombre de usuario, que permite que
 - Los datos de cada usuario se almacenan en el _local storage_ del navegador, de manera que se crea una persistencia de esos datos en el navegador.
 - Se solicitaba mínimo 3 describe (tests) pero se han realizado 6.
 - Cuando el usuario se registra y sale el mensaje de resgistro completado, se redirecciona a la página para logearse.
-
-## P4 TimeInn API
