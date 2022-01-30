@@ -1,3 +1,5 @@
+import * as helper from './helper.js';
+
 const headerContainer = document.querySelector('.header');
 const footerContainer = document.querySelector('.footer');
 
@@ -100,6 +102,7 @@ const menuHandler = function () {
     if (!btn) return;
     if (btn.classList.contains('nav-btn')) toggleMenu();
     if (btn.classList.contains('login-icon')) sendToLoginPage();
+    if (btn.classList.contains('user-name')) logOut();
   });
 };
 menuHandler();
@@ -109,4 +112,11 @@ menuHandler();
  */
 const sendToLoginPage = function () {
   window.location.replace('login.html');
+};
+
+const logOut = function () {
+  renderHeader('');
+  helper.delToken();
+  const userCookie = helper.filterUserCookie();
+  helper.delCookie(userCookie);
 };

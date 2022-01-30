@@ -54,9 +54,6 @@ calendar.addEventCalendar();
 
 //Render the fourth section: news
 const controlNewsSection = async function () {
-  // await model.getNews(
-  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVwZUBwZXBlLmNvbSIsInBzd2QiOiJwZXBlMTIzNCIsImlhdCI6MTY0MzQxNDI2MiwiZXhwIjoxNjQzNDE3ODYyfQ.OutRTavGogZgtuoPfqSbJgMmrYQd9KFcMRI5GFNxCmI'
-  // );
   await model.getNews(helper.getToken());
   newsSection
     .filterNews(model.news)
@@ -107,9 +104,6 @@ const controlAllEventsPage = async function () {
 
 // Render the all-news Page
 const controlNewsPage = async function () {
-  // await model.getNews(
-  //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoicGVwZUBwZXBlLmNvbSIsInBzd2QiOiJwZXBlMTIzNCIsImlhdCI6MTY0MzQxNDI2MiwiZXhwIjoxNjQzNDE3ODYyfQ.OutRTavGogZgtuoPfqSbJgMmrYQd9KFcMRI5GFNxCmI'
-  // );
   await model.getNews(helper.getToken());
   newsSection
     .filterNews(model.news)
@@ -135,7 +129,6 @@ signupValidation.passwMatchFocusHandler();
 //Show passw
 signupValidation.showPassw();
 
-// model.setCookieToken('pepe@pepe.com', 'pepe1234');
 const init = function () {
   controlFirstSection();
   controlSecondSection();
