@@ -106,7 +106,7 @@ export const emailFocusHandler = function (usersData) {
   }
 };
 
-//Password Validation
+// Password Validation
 const sendPasswMessage = function (userPassInput) {
   if (!passInputCont) return;
   try {
@@ -142,7 +142,7 @@ export const passwFocusHandler = function () {
   }
 };
 
-//Functions to validate if passws match
+// Functions to validate if passws match
 const sendPasswMatchMessage = function (userPassInput, userPassRptInput) {
   if (!passInputCont) return;
   const alertContainer = document.querySelector('.alert-container');
@@ -176,7 +176,7 @@ export const passwMatchFocusHandler = function () {
   }
 };
 
-//show error mssg
+// Show error msg
 const generateAlert = function (msg) {
   return `
     <div class="alert-container">
@@ -184,6 +184,7 @@ const generateAlert = function (msg) {
     </div>
     `;
 };
+
 const render = function (inputCont, alertCont, markup) {
   if (alertCont) alertCont.outerHTML = '';
   inputCont.insertAdjacentHTML('beforeend', markup);
@@ -240,11 +241,11 @@ export const signupBtnHandler = function (usersData, registerFcn) {
       usersData.push(data);
       helper.setLocalStorage(usersData);
       helper.toggleAlertVisibility(overlay, alertMsg);
-      registerFcn(data.email, data.password);
+      registerFcn(data);
       setTimeout(() => {
         helper.toggleAlertVisibility(overlay, alertMsg);
         setTimeout(() => {
-          window.location.replace('login.html');
+          window.location.replace('index.html');
         }, 1000);
       }, 3000);
       usernameInput.value = '';
