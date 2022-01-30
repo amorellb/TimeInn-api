@@ -23,6 +23,15 @@ h2 {
   margin: 0;
 }
 
+.restricted-msg {
+  background-color: transparent;
+  color: black;
+  font-family: unset;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: none;
+}
+
 .news-container {
   font-family: $article-font;
   width: 100%;

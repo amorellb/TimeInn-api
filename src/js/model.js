@@ -10,6 +10,7 @@ export const state = {
 };
 
 export let events = [];
+export let news = [];
 
 export const getAllEvents = async function () {
   try {
@@ -61,6 +62,13 @@ export async function deleteEvent(eventId) {
   }
 }
 
+const createUserObject = function (user) {
+  return {
+    email: user.email,
+    password: user.password
+  };
+};
+
 export async function setCookieToken(email, passwd) {
   try {
     const fetchPro = await fetch(`${API_AUTH_URL}auth/login`, {
@@ -76,15 +84,33 @@ export async function setCookieToken(email, passwd) {
   }
 }
 
-export async function registerUser(email, passwd) {
+export async function registerUser(user) {
   try {
+    const userObj = createUserObject(user);
     fetch(`${API_AUTH_URL}auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email: email, password: passwd })
+      body: JSON.stringify(userObj)
     });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function getNews(token) {
+  try {
+    const fetchPro = await fetch(`${API_AUTH_URL}news`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    data = await fetchPro.json();
+    if (!fetchPro.ok) throw new Error(`${data.message} (${fetchPro.status})`);
+    news = [...data];
+    return news;
   } catch (err) {
     console.error(err);
   }
