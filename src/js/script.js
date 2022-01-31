@@ -33,9 +33,9 @@ headerFooter.renderFooter();
 
 // Render the first section: events of the day
 const controlFirstSection = async function () {
-  await model.getAllEvents();
-  firstSection.render(firstSection.generateVideoMarkup(model.events));
-  firstSection.render(firstSection.generateInfoMarkup(model.events));
+  await model.getEvent(1);
+  firstSection.render(firstSection.generateVideoMarkup(model.state));
+  firstSection.render(firstSection.generateInfoMarkup(model.state));
 };
 
 // Render the second section: events of the week
@@ -100,6 +100,8 @@ const controlAllEventsPage = async function () {
   allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
   allEventsPage.editEventHandler(model.editEvent);
   allEventsPage.deleteEventHandler(model.deleteEvent);
+
+  allEventsPage.showEventHandler(model.getEvent);
 };
 
 // Render the all-news Page
