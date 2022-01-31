@@ -119,4 +119,5 @@ const logOut = function () {
   helper.delToken();
   const userCookie = helper.filterUserCookie();
   helper.delCookie(userCookie);
+  window.location.reload();
 };
