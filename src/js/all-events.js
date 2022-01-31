@@ -36,7 +36,7 @@ export const generateEventsMarkup = function (event) {
   const localeDate = new Date(eventsNearDate).toLocaleDateString();
   return `
     <div class="single-event-container">
-      <img class="event-img" src="${event.imgURL}" alt="${event.title}" data-id=${event.id}>
+      <img class="events-img" src="${event.imgURL}" alt="${event.title}" data-id=${event.id}>
       <h2 class="event-title">${event.title}<span style="visibility: hidden">${event.id}</span></h2>
       <p class="event-desc">${event.description}</p>
       <p class="event-dates">${localeDate}</p>
@@ -315,6 +315,7 @@ export const searchHandler = function (events) {
       });
       eventsContainer.innerHTML = '';
       filteredEvents.forEach(event => render(generateEventsMarkup(event)));
+      searchInput.value = '';
     });
   } catch (err) {
     console.error(err);
@@ -350,7 +351,7 @@ export const showEventHandler = function (getEventFunc) {
   eventsContainer.addEventListener('click', e => {
     e.stopPropagation();
     const eventCard = e.target;
-    if (!eventCard || !eventCard.classList.contains('event-img')) return;
+    if (!eventCard || !eventCard.classList.contains('events-img')) return;
     const id = eventCard.dataset.id;
     getEventFunc(id).then(event => {
       eventsContainer.innerHTML = '';
