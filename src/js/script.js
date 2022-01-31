@@ -77,7 +77,11 @@ if (!cookies.includes('session=Cookie')) {
 // Render the event when a tickets button is clicked
 const controlEventPage = async function () {
   await model.getAllEvents();
-  eventPage.render(eventPage.generateEventMarkup(model.events));
+  const markup = await eventPage.generateEventMarkup(
+    model.events,
+    model.getEventImg
+  );
+  eventPage.render(markup);
 };
 
 const controlAllEventsPage = async function () {

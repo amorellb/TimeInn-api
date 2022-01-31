@@ -138,3 +138,16 @@ export async function getNews(token) {
     console.error(err);
   }
 }
+
+// original img URL: https://www.liceubarcelona.cat/sites/default/files/front_web_winterreise.jpg
+export async function getEventImg(id) {
+  const imgURL = fetch(`${API_URL}events/${id}`)
+    .then(res => res.json())
+    .then(event => event.imgURL)
+    .then(imgURL =>
+      fetch(imgURL)
+        .then(res => res.blob())
+        .then(img => URL.createObjectURL(img))
+    );
+  return imgURL;
+}

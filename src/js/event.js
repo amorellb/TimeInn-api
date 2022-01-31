@@ -5,13 +5,12 @@ const eventContainer = document.querySelector('.event-container');
  * @param {array} events
  * @returns
  */
-export const generateEventMarkup = function (events) {
+export const generateEventMarkup = async function (events, getImgFunc) {
+  const imgURL = await getImgFunc(events[0].id);
   return `
   <section class="event">
         <h1 class="event-title">${events[0].title}</h1>
-        <img class="event-img" src="${events[0].imgURL}" alt="${
-    events[0].title
-  }">
+        <img class="event-img" src="${imgURL}" alt="${events[0].title}">
         <aside class="event-form">
           <form action="post">
             <input class="event-form-input" type="text" name="name" id="name" placeholder="Name"/>
@@ -45,7 +44,7 @@ export const generateEventMarkup = function (events) {
  * @param {string} markup
  * @returns
  */
-export const render = function (markup) {
+export const render = async function (markup) {
   if (!eventContainer) return;
   eventContainer.insertAdjacentHTML('afterbegin', markup);
 };
