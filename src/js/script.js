@@ -100,6 +100,8 @@ const controlAllEventsPage = async function () {
   allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
   allEventsPage.editEventHandler(model.editEvent);
   allEventsPage.deleteEventHandler(model.deleteEvent);
+
+  allEventsPage.showEventHandler(model.getEvent);
 };
 
 // Render the all-news Page

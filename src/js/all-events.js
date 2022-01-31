@@ -36,7 +36,7 @@ export const generateEventsMarkup = function (event) {
   const localeDate = new Date(eventsNearDate).toLocaleDateString();
   return `
     <div class="single-event-container">
-      <img src="${event.imgURL}" alt="${event.title}">
+      <img class="event-img" src="${event.imgURL}" alt="${event.title}" data-id=${event.id}>
       <h2 class="event-title">${event.title}<span style="visibility: hidden">${event.id}</span></h2>
       <p class="event-desc">${event.description}</p>
       <p class="event-dates">${localeDate}</p>
@@ -343,4 +343,59 @@ const filterEventsByDate = function (events) {
   });
   eventsContainer.innerHTML = '';
   filteredEvents.forEach(event => render(generateEventsMarkup(event)));
+};
+
+export const showEventHandler = function (getEventFunc) {
+  if (!eventsContainer) return;
+  eventsContainer.addEventListener('click', e => {
+    e.stopPropagation();
+    const eventCard = e.target;
+    if (!eventCard || !eventCard.classList.contains('event-img')) return;
+    const id = eventCard.dataset.id;
+    getEventFunc(id).then(event => {
+      eventsContainer.innerHTML = '';
+      const eventMarkup = generateEventMarkup(event);
+      renderEvent(eventMarkup);
+    });
+  });
+};
+
+// A function to return an event markup given an event fetch by id
+const generateEventMarkup = function (event) {
+  return `
+  <section class="event">
+        <h1 class="event-title">${event.title}</h1>
+        <img class="event-img" src="${event.imgURL}" alt="${event.title}">
+        <aside class="event-form">
+          <form action="post">
+            <input class="event-form-input" type="text" name="name" id="name" placeholder="Name"/>
+            <input class="event-form-input" type="text" name="lastName" id="lastName" placeholder="Last name"/>
+            <input class="event-form-input" type="text" name="phone" id="phone" placeholder="Phone"/>
+            <input class="event-form-input" type="text" name="email" id="email" placeholder="Email"/>
+            <input class="event-form-input" type="number" name="numTickets" id="numTickets" value="1" min="1"/>
+            <button class="event-form-btn" type="submit">Add to cart</button>
+          </form>
+        </aside>
+        <div class="event-description">
+        <h2>Price</h2>
+        <p>${event.price} €</p>
+        <h2>Dates</h2>
+        <p>${event.dates
+          .map(date => new Date(date).toLocaleDateString())
+          .join(', ')}</p>
+        <h2>Author</h2>
+        <p>${event.author}</p>
+          <h2>Description</h2>
+          <p>${event.description}</p>
+          <h2>Duration</h2>
+        <p>${event.duration} min</p>
+        </div>
+      </section>
+  `;
+};
+
+// A function to render the event
+const renderEvent = function (markup) {
+  if (!eventsContainer) return;
+  eventsContainer.insertAdjacentHTML('afterbegin', markup);
 };

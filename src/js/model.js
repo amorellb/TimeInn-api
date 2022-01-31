@@ -3,8 +3,11 @@ import { AJAX, generateRandomId, setCookie } from './helper';
 
 export const state = {
   title: '',
+  author: '',
   dates: [],
   type: '',
+  duration: '',
+  price: '',
   imgURL: '',
   videoURL: '',
   description: ''
@@ -28,11 +31,15 @@ export const getEvent = async function (id) {
     const fetchPro = await fetch(`${API_URL}events/${id}`);
     const event = await fetchPro.json();
     state.title = event.title;
+    state.author = event.author;
+    state.duration = event.duration;
+    state.price = event.price;
     state.dates = [...event.dates];
     state.type = event.type;
     state.imgURL = event.imgURL;
     state.videoURL = event.videoURL;
     state.description = event.description;
+    return state;
   } catch (err) {
     console.error(err);
   }
