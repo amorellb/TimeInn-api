@@ -6,6 +6,7 @@ export const state = {
   dates: [],
   type: '',
   imgURL: '',
+  videoURL: '',
   description: ''
 };
 
@@ -19,6 +20,21 @@ export const getAllEvents = async function () {
   } catch (err) {
     console.error(err);
     throw err;
+  }
+};
+
+export const getEvent = async function (id) {
+  try {
+    const fetchPro = await fetch(`${API_URL}events/${id}`);
+    const event = await fetchPro.json();
+    state.title = event.title;
+    state.dates = [...event.dates];
+    state.type = event.type;
+    state.imgURL = event.imgURL;
+    state.videoURL = event.videoURL;
+    state.description = event.description;
+  } catch (err) {
+    console.error(err);
   }
 };
 
