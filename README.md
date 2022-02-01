@@ -2,7 +2,7 @@
 
 P4: JS Asincron i APIs
 
-S'ha afegit un logOut el clickar sobre el nom de l'usuari actiu que es troba a l _header_.
+S'ha afegit un logOut el clickar sobre el nom de l'usuari actiu que es troba al _header_.
 
 ## P2 TimeInn
 

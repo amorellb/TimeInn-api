@@ -29,14 +29,15 @@ const dateToInput = document.querySelector('.date-to');
  * @param {object} event
  * @returns A string of an event's html
  */
-export const generateEventsMarkup = function (event) {
+export const generateEventsMarkup = async function (event, getImgFunc) {
   if (!event) return;
+  const imgURL = await getImgFunc(event.id);
   const [...dates] = event.dates;
   const eventsNearDate = dates.join('').slice(0, 10).replaceAll('-', '/');
   const localeDate = new Date(eventsNearDate).toLocaleDateString();
   return `
     <div class="single-event-container">
-      <img class="events-img" src="${event.imgURL}" alt="${event.title}" data-id=${event.id}>
+      <img class="events-img" src="${imgURL}" alt="${event.title}" data-id=${event.id}>
       <h2 class="event-title">${event.title}<span style="visibility: hidden">${event.id}</span></h2>
       <p class="event-desc">${event.description}</p>
       <p class="event-dates">${localeDate}</p>
@@ -86,26 +87,38 @@ export const renderFilterButtons = function (markup) {
  * A function to handle all the filter buttons, which given all the events, will render only those of the filter type
  * @param {array} events
  */
-export const filterHandler = function (events) {
+export const filterHandler = async function (events, getImgFunc) {
   if (!filterContainer || !eventsContainer) return;
   filterContainer.addEventListener('click', e => {
     const btn = e.target.closest('.btn-filter');
     if (!btn) return;
     if (btn.classList.contains('btn-all-events')) {
       eventsContainer.innerHTML = '';
-      events.forEach(event => render(generateEventsMarkup(event)));
+      events.forEach(async event => {
+        const markup = await generateEventsMarkup(event, getImgFunc);
+        render(markup);
+      });
     } else if (btn.classList.contains('btn-dance')) {
       eventsContainer.innerHTML = '';
       const danceEvents = filterEventsByType(events, 'dance');
-      danceEvents.forEach(event => render(generateEventsMarkup(event)));
+      danceEvents.forEach(async event => {
+        const markup = await generateEventsMarkup(event, getImgFunc);
+        render(markup);
+      });
     } else if (btn.classList.contains('btn-concert')) {
       eventsContainer.innerHTML = '';
       const concertEvents = filterEventsByType(events, 'concert');
-      concertEvents.forEach(event => render(generateEventsMarkup(event)));
+      concertEvents.forEach(async event => {
+        const markup = await generateEventsMarkup(event, getImgFunc);
+        render(markup);
+      });
     } else if (btn.classList.contains('btn-opera')) {
       eventsContainer.innerHTML = '';
       const operaEvents = filterEventsByType(events, 'opera');
-      operaEvents.forEach(event => render(generateEventsMarkup(event)));
+      operaEvents.forEach(async event => {
+        const markup = await generateEventsMarkup(event, getImgFunc);
+        render(markup);
+      });
     }
   });
 };
@@ -159,22 +172,24 @@ addHandlerHideForm();
 /**
  * A function to handle the clicks on the modal form upload button
  */
-export const uploadBtnHandler = function (uploadFunc, data) {
+export const uploadBtnHandler = function (uploadFunc, data, getImgFunc) {
   if (!uploadBtn) return;
   uploadBtn.addEventListener('click', e => {
     e.preventDefault();
-    uploadEvent(uploadFunc, data);
-    location.reload();
+    uploadEvent(uploadFunc, data, getImgFunc);
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
   });
 };
 
 /**
  * A function to render the new event given the data added by the user into the modal form
  */
-const uploadEvent = function (uploadFunc, data) {
+const uploadEvent = async function (uploadFunc, data, getImgFunc) {
   if (!eventsContainer) return;
   const formData = getFormData();
-  const markup = generateEventsMarkup(formData);
+  const markup = await generateEventsMarkup(formData, getImgFunc);
   data.push(formData);
   uploadFunc(formData);
   eventsContainer.insertAdjacentHTML('beforeend', markup);
@@ -233,12 +248,13 @@ const toggleBtnVisibility = function () {
  * @param {object} event
  * @returns A string of the event data html
  */
-const generateEditedEventMarkup = function (event) {
+const generateEditedEventMarkup = async function (event, getImgFunc) {
+  const imgURL = await getImgFunc(event.id);
   const [...dates] = event.dates;
   const eventsNearDate = dates.join('').slice(0, 10).replaceAll('-', '/');
   const localeDate = new Date(eventsNearDate).toLocaleDateString();
   return `
-      <img src="${event.imgURL}" alt="${event.title}">
+      <img src="${imgURL}" alt="${event.title} data-id="${event.id}"">
       <h2 class="event-title">${event.title}<span style="visibility: hidden">${event.id}</span></h2>
       <p class="event-desc">${event.description}</p>
       <p class="event-dates">${localeDate}</p>
@@ -251,9 +267,9 @@ const generateEditedEventMarkup = function (event) {
  * A function that given an element (an event container) will put the form data of the edited element within the element
  * @param {element} parentElem
  */
-const editEvent = function (parentElem, editFunc, eventId) {
+const editEvent = async function (parentElem, editFunc, eventId, getImgFunc) {
   const formData = getFormData();
-  const markup = generateEditedEventMarkup(formData);
+  const markup = await generateEditedEventMarkup(formData, getImgFunc);
   parentElem.innerHTML = markup;
   emptyInputValues(inputTitle, inputImgURL, inputDesc, inputDates);
   editFunc(eventId, formData);
@@ -266,12 +282,12 @@ const editEvent = function (parentElem, editFunc, eventId) {
  * A function to handle the clicks on the modal form edit button
  * @param {element} parentElem
  */
-const editBtnHandler = function (parentElem, editFunc, eventId) {
+const editBtnHandler = function (parentElem, editFunc, eventId, getImgFunc) {
   if (!editBtn) return;
   editBtn.addEventListener('click', e => {
     e.preventDefault();
     toggleWindow();
-    editEvent(parentElem, editFunc, eventId);
+    editEvent(parentElem, editFunc, eventId, getImgFunc);
     toggleBtnVisibility();
   });
 };
@@ -279,7 +295,7 @@ const editBtnHandler = function (parentElem, editFunc, eventId) {
 /**
  * A function to handle the clicks on the edit icon of the event
  */
-export const editEventHandler = function (editFunc) {
+export const editEventHandler = function (editFunc, getImgFunc) {
   if (!eventsContainer) return;
   eventsContainer.addEventListener('click', e => {
     const btn = e.target.closest('.btn-icon');
@@ -291,7 +307,7 @@ export const editEventHandler = function (editFunc) {
       toggleWindow();
       const eventId =
         btn.parentElement.childNodes[3].firstElementChild.innerHTML;
-      editBtnHandler(btn.parentElement, editFunc, eventId);
+      editBtnHandler(btn.parentElement, editFunc, eventId, getImgFunc);
     }
   });
 };
@@ -301,7 +317,7 @@ export const editEventHandler = function (editFunc) {
  * Finally, it renders the events that its title has the given word
  * @param {array} events
  */
-export const searchHandler = function (events) {
+export const searchHandler = function (events, getImgFunc) {
   if (!events || !searchBtn || !eventsContainer) return;
   try {
     searchBtn.addEventListener('click', () => {
@@ -314,7 +330,10 @@ export const searchHandler = function (events) {
         }
       });
       eventsContainer.innerHTML = '';
-      filteredEvents.forEach(event => render(generateEventsMarkup(event)));
+      filteredEvents.forEach(async event => {
+        const markup = await generateEventsMarkup(event, getImgFunc);
+        render(markup);
+      });
       searchInput.value = '';
     });
   } catch (err) {
@@ -322,19 +341,19 @@ export const searchHandler = function (events) {
   }
 };
 
-export const btnFindHandler = function (events) {
+export const btnFindHandler = function (events, getImgFunc) {
   if (!btnFind) return;
   try {
     btnFind.addEventListener('click', e => {
       e.preventDefault();
-      filterEventsByDate(events);
+      filterEventsByDate(events, getImgFunc);
     });
   } catch (err) {
     console.error(err);
   }
 };
 
-const filterEventsByDate = function (events) {
+const filterEventsByDate = function (events, getImgFunc) {
   const dateFrom = new Date(dateFromInput.value);
   const dateTo = new Date(dateToInput.value);
   const filteredEvents = events.filter(event => {
@@ -343,30 +362,36 @@ const filterEventsByDate = function (events) {
     });
   });
   eventsContainer.innerHTML = '';
-  filteredEvents.forEach(event => render(generateEventsMarkup(event)));
+  filteredEvents.forEach(async event => {
+    const markup = await generateEventsMarkup(event, getImgFunc);
+    render(markup);
+  });
 };
 
-export const showEventHandler = function (getEventFunc) {
+export const showEventHandler = function (getEventFunc, getImgFunc) {
   if (!eventsContainer) return;
   eventsContainer.addEventListener('click', e => {
     e.stopPropagation();
     const eventCard = e.target;
     if (!eventCard || !eventCard.classList.contains('events-img')) return;
     const id = eventCard.dataset.id;
-    getEventFunc(id).then(event => {
+    getEventFunc(id).then(async event => {
       eventsContainer.innerHTML = '';
-      const eventMarkup = generateEventMarkup(event);
+      const eventMarkup = await generateEventMarkup(event, getImgFunc);
       renderEvent(eventMarkup);
     });
   });
 };
 
 // A function to return an event markup given an event fetch by id
-const generateEventMarkup = function (event) {
+const generateEventMarkup = async function (event, getImgFunc) {
+  const imgURL = await getImgFunc(event.id);
   return `
   <section class="event">
         <h1 class="event-title">${event.title}</h1>
-        <img class="event-img" src="${event.imgURL}" alt="${event.title}">
+        <img class="event-img" src="${imgURL}" alt="${event.title}" data-id="${
+    event.id
+  }">
         <aside class="event-form">
           <form action="post">
             <input class="event-form-input" type="text" name="name" id="name" placeholder="Name"/>

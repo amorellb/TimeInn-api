@@ -88,24 +88,32 @@ const controlAllEventsPage = async function () {
   await model.getAllEvents();
 
   // Render all events into all-events page
-  model.events.forEach(event =>
-    allEventsPage.render(allEventsPage.generateEventsMarkup(event))
-  );
+  model.events.forEach(async event => {
+    const markup = await allEventsPage.generateEventsMarkup(
+      event,
+      model.getEventImg
+    );
+    allEventsPage.render(markup);
+  });
   // Filter events by type
   allEventsPage.renderFilterButtons(
     allEventsPage.generateFilterMarkup(model.events)
   );
-  allEventsPage.filterHandler(model.events);
+  allEventsPage.filterHandler(model.events, model.getEventImg);
   // Search events
-  allEventsPage.searchHandler(model.events);
+  allEventsPage.searchHandler(model.events, model.getEventImg);
   // Filter events by date
-  allEventsPage.btnFindHandler(model.events);
+  allEventsPage.btnFindHandler(model.events, model.getEventImg);
   // Upload and save new event
-  allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
-  allEventsPage.editEventHandler(model.editEvent);
+  allEventsPage.uploadBtnHandler(
+    model.uploadEvent,
+    model.events,
+    model.getEventImg
+  );
+  allEventsPage.editEventHandler(model.editEvent, model.getEventImg);
   allEventsPage.deleteEventHandler(model.deleteEvent);
 
-  allEventsPage.showEventHandler(model.getEvent);
+  allEventsPage.showEventHandler(model.getEvent, model.getEventImg);
 };
 
 // Render the all-news Page

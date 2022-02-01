@@ -30,7 +30,11 @@
       "title": "Pierrot Lunaire: Narcís",
       "author": "Arnold Schönberg",
       "group": "",
-      "dates": ["11/16/2021", "11/17/2021", "11/18/2021"],
+      "dates": [
+        "11/16/2021",
+        "11/17/2021",
+        "11/18/2021"
+      ],
       "type": "concert",
       "duration": 60,
       "price": 65,
@@ -40,19 +44,24 @@
         "movement": "Maria C. de Vaca",
         "musicDirector": "Francesc Prat"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_pierrot_2_0.png",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/pierrot.png?token=GHSAT0AAAAAABREJYHLQH4LZKUJAJM7HFB2YQCGODA",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
     {
       "id": 3,
       "title": "Mite i tragèdia d'electra i èdip",
-      "author": ["Richard Strauss", "Igor Stravinsky"],
+      "author": [
+        "Richard Strauss",
+        "Igor Stravinsky"
+      ],
       "group": [
         "Cor del Gran TeaTRE del Liceu",
         "Orquestra Simfónica del Gran Tatre del Liceu"
       ],
-      "dates": ["11/13/2021"],
+      "dates": [
+        "11/13/2021"
+      ],
       "type": "opera",
       "duration": 120,
       "price": 80,
@@ -66,7 +75,7 @@
           "pastor": "David Alegret"
         }
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_elektra_edip.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/elektra.jpg?token=GHSAT0AAAAAABREJYHLBC5ZMJCKAYL7BXECYQCGPAQ",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -110,7 +119,7 @@
           "maddalena": "Rinat Shaham"
         }
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_rigoleto.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/rigoleto.jpg?token=GHSAT0AAAAAABREJYHKX2C4FZ74CM6FO7OEYQCGPZA",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/espectacles/temporada_2021-2022/opera/rigoletto/caps10_rigoletto_2122_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -122,14 +131,16 @@
         "Orquestra Simfónica del Gran Teatre del Liceu",
         "Orchestre de l'Opéra National de Paris"
       ],
-      "dates": ["11/21/2021"],
+      "dates": [
+        "11/21/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 45,
       "artists": {
         "director": "Gustavo Dudamel"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_dudamel_2.png",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/dudamel.png?token=GHSAT0AAAAAABREJYHLX7ZIN4QI43NQV3W6YQCGQOA",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -163,7 +174,7 @@
         "dress": "Nicky Gillibrand",
         "production": "Dutch National Opera"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_flauta.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/flauta.jpg?token=GHSAT0AAAAAABREJYHKRSUQZ2GJN763K5ACYQCGQ2Q",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/espectacles/temporada_2021-2022/opera/la_flauta_magica/caps10_flauta_mag_2122_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -190,7 +201,7 @@
         "scenography": "Antoine Fontaine",
         "dress": "Philippe Guillotel"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_trencanous_0.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/trencanous.jpg?token=GHSAT0AAAAAABREJYHLXUSPJDEKM6HW2YWWYQCGRNQ",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/espectacles/temporada_2021-2022/dansa/promo_trencanous_2122_h_clean_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -199,14 +210,16 @@
       "title": "Els Madrigals de Monteverdi I",
       "author": "C. Monteverdi",
       "group": "Concerto Italiano",
-      "dates": ["11/07/2021"],
+      "dates": [
+        "11/07/2021"
+      ],
       "type": "concert",
       "duration": 120,
       "price": 105,
       "artists": {
         "director": "Rinaldo Alessandrini"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_madrigals1.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/madrigals.jpg?token=GHSAT0AAAAAABREJYHKVH5S5ZCWDIIMYYZIYQCGR5A",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -234,7 +247,7 @@
         "dress": "Lluc Castells",
         "production": "Nova producció basada en la producció de la Dresden Oper"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_pelleas-et-melisande.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/pelleas.jpg?token=GHSAT0AAAAAABREJYHLA5P2K57E3YKZG5YWYQCGSQA",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/caps10_pelleasetmelisande_2122_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -266,7 +279,7 @@
         "dress": "William Orlandi",
         "production": "Gran Teatre del Liceu"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_dama-de-picas.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/dama-de-picas.jpg?token=GHSAT0AAAAAABREJYHLDEEXC3PMYBJIFWHQYQCGS5Q",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/espectacles/temporada_2021-2022/opera/pikovaia_dama/caps10_piquedame_2122_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -275,7 +288,9 @@
       "title": "Piotr Beczala",
       "author": "",
       "group": "",
-      "dates": ["02/03/2022"],
+      "dates": [
+        "02/03/2022"
+      ],
       "type": "concert",
       "duration": "Not available",
       "price": 25,
@@ -283,7 +298,7 @@
         "tenor": "Piotr Beczala",
         "piano": "Not available"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_beczala_0.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/beczala.jpg?token=GHSAT0AAAAAABREJYHLQXVLBAAVUSBG5BZ2YQCGOLA",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -292,7 +307,9 @@
       "title": "Sonya Yoncheva canta Puccini",
       "author": "",
       "group": "Gran Simfònica del Gran Teatre del Liceu",
-      "dates": ["04/30/2022"],
+      "dates": [
+        "04/30/2022"
+      ],
       "type": "concert",
       "duration": 160,
       "price": 35,
@@ -300,7 +317,7 @@
         "director": "Francesco Ivan Ciampa",
         "soprano": "Sonya Yoncheva"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/front_web_yoncheva.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/yoncheva.jpg?token=GHSAT0AAAAAABREJYHLKNQCYE5UA7N22XEQYQCGTYQ",
       "videoURL": "",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     },
@@ -309,7 +326,12 @@
       "title": "Giselle D'Akram Khan",
       "author": "Adolphe Adam",
       "group": "English National Ballet",
-      "dates": ["05/04/2022", "05/05/2022", "05/06/2022", "05/07/2022"],
+      "dates": [
+        "05/04/2022",
+        "05/05/2022",
+        "05/06/2022",
+        "05/07/2022"
+      ],
       "type": "dance",
       "duration": 120,
       "price": 70,
@@ -321,7 +343,7 @@
         "director": "Gavin Sutherland",
         "dress": "Tim Yip"
       },
-      "imgURL": "https://www.liceubarcelona.cat/sites/default/files/10_-_giselle_english_national_ballet_0.jpg",
+      "imgURL": "https://raw.githubusercontent.com/amorellb/TimeInn-api/main/src/images/giselle.jpg?token=GHSAT0AAAAAABREJYHLGWJ6JOIXRMNZYFYIYQCGUEQ",
       "videoURL": "https://www.liceubarcelona.cat/sites/default/files/promo_giselle_2122_h_clean_1.mp4",
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut amet veniam architecto quae repudiandae saepe. Ex velit alias minus vero facilis, eius officiis at architecto molestiae voluptatem recusandae soluta corrupti. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta quo consequatur ipsa commodi, eligendi non deleniti fugiat? Tempore et consequuntur hic. Deserunt cumque harum autem ea, laboriosam ipsum voluptate veniam!"
     }
