@@ -2,7 +2,21 @@
 
 P4: JS Asincron i APIs
 
-S'ha afegit un logOut el clickar sobre el nom de l'usuari actiu que es troba al _header_.
+- Els arxius de les APIs es troben dins `/api/db`.
+
+- Es fa servir Parcel per generar la versió de producció, per tant, per poder iniciar el projecte cal en primer lloc instal.lar les dependències amb `npm install` i en segon lloc executar l'escript `npm run start`. Es poden trobar els diferents scripts per llançar la web o les APIs al `package.json`.
+
+- S'ha afegit un _logout_ en clicar sobre el nom de l'usuari actiu que es troba al _header_. Aquest _logout_ borra totes les _cookies_ actives de l'usuari.
+
+- Les imatges de la web es carreguen fent servir un `fetch` a la url de l'API i després fent un altre `fetch` amb `blob` per carregar les imatges que es troben al repositori, dins la carpeta `images`.
+
+- A la pàgina d'events, si es clica sobre la imatge d'un event, es crida a la API per recollir, fent servir l'id de l'event, les dades de l'event i es renderitza a la mateixa pàgina. Per tonar a carregar tots els events, només cal clicar al botó 'All Events'.
+
+- S'han afegit totes les funcionalitats de CRUD per als events.
+
+- Es poden registrar i fer login d'usuaris. A la base de dades `users.json` hi ha alguns usuaris que es poden fer servir o afegir-ne de nous.
+
+- Les noticies tant a la front-page com a la pàgina de noticies, només es mostrin si l'usuari está 'logejat', en cas de no estar-ho, es mostra un misatge de que la secció es d'ús restringit. Aixó s'aconsegueix fent servir el _token_ de l'usuari y una _cookie_ per emmagatzemar-lo.
 
 ## P2 TimeInn
 
