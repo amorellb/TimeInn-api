@@ -172,11 +172,11 @@ addHandlerHideForm();
 /**
  * A function to handle the clicks on the modal form upload button
  */
-export const uploadBtnHandler = function (uploadFunc, data, getImgFunc) {
+export const uploadBtnHandler = function (uploadFunc, data) {
   if (!uploadBtn) return;
   uploadBtn.addEventListener('click', e => {
     e.preventDefault();
-    uploadEvent(uploadFunc, data, getImgFunc);
+    uploadEvent(uploadFunc, data);
     setTimeout(() => {
       location.reload();
     }, 1000);
@@ -186,13 +186,11 @@ export const uploadBtnHandler = function (uploadFunc, data, getImgFunc) {
 /**
  * A function to render the new event given the data added by the user into the modal form
  */
-const uploadEvent = async function (uploadFunc, data, getImgFunc) {
+const uploadEvent = function (uploadFunc, data) {
   if (!eventsContainer) return;
   const formData = getFormData();
-  const markup = await generateEventsMarkup(formData, getImgFunc);
   data.push(formData);
   uploadFunc(formData);
-  eventsContainer.insertAdjacentHTML('beforeend', markup);
   toggleWindow();
   emptyInputValues(inputTitle, inputImgURL, inputDesc, inputDates);
 };

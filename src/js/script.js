@@ -105,11 +105,7 @@ const controlAllEventsPage = async function () {
   // Filter events by date
   allEventsPage.btnFindHandler(model.events, model.getEventImg);
   // Upload and save new event
-  allEventsPage.uploadBtnHandler(
-    model.uploadEvent,
-    model.events,
-    model.getEventImg
-  );
+  allEventsPage.uploadBtnHandler(model.uploadEvent, model.events);
   allEventsPage.editEventHandler(model.editEvent, model.getEventImg);
   allEventsPage.deleteEventHandler(model.deleteEvent);
 
