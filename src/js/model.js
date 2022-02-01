@@ -2,6 +2,7 @@ import { API_URL, API_AUTH_URL } from './config';
 import { AJAX, generateRandomId, setCookie } from './helper';
 
 export const state = {
+  id: '',
   title: '',
   author: '',
   dates: [],
@@ -30,6 +31,7 @@ export const getEvent = async function (id) {
   try {
     const fetchPro = await fetch(`${API_URL}events/${id}`);
     const event = await fetchPro.json();
+    state.id = event.id;
     state.title = event.title;
     state.author = event.author;
     state.duration = event.duration;
@@ -134,6 +136,23 @@ export async function getNews(token) {
     if (!fetchPro.ok) throw new Error(`${data.message} (${fetchPro.status})`);
     news = [...data];
     return news;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+// original img URL: https://www.liceubarcelona.cat/sites/default/files/front_web_winterreise.jpg
+export async function getEventImg(id) {
+  try {
+    const imgURL = fetch(`${API_URL}events/${id}`)
+      .then(res => res.json())
+      .then(event => event.imgURL)
+      .then(imgURL =>
+        fetch(imgURL)
+          .then(res => res.blob())
+          .then(img => URL.createObjectURL(img))
+      );
+    return imgURL;
   } catch (err) {
     console.error(err);
   }
